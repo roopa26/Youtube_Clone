@@ -1,16 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faMicrophone, faPlus } from '@fortawesome/free-solid-svg-icons'
 import {faBell} from '@fortawesome/free-regular-svg-icons'
+import { LOGO, PROFILE_PHOTO, SIDEBAR_TOGGLER } from '../../utils/Constants'
 
 const Header = () => {
   return (
-    <div className='flex justify-between w-[100%] h-16 items-center shadow-sm px-6'>
+    <div className='flex w-full justify-between h-16 items-center shadow-sm px-6'>
         <div className='flex'>
             <img className='w-9 h-12 pt-4 cursor-pointer' 
-                src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-5.png" 
+                src={SIDEBAR_TOGGLER} 
                 alt = "toggle button"/>
             <img className='w-28 h-16 cursor-pointer'
-                src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
+                src={LOGO}
                 alt = "logo"/>
         </div>
         
@@ -32,7 +33,9 @@ const Header = () => {
                 <FontAwesomeIcon style={{height:'2rem'}} icon={faBell} />
             </button>
             <img
-            className='w-10 h-10 rounded-full m-2 cursor-pointer' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile Image"/>
+            className='w-10 h-10 rounded-full m-2 cursor-pointer' 
+            src={PROFILE_PHOTO}
+            alt="Profile Image"/>
         </div>
     </div>
   )
