@@ -6,5 +6,4 @@
 # on blur list disappers and on focus list appears
 # multi level nested comment using recursion
 # live chat feature added
-# looks good on mobile view as well
 # hosted on netlify
