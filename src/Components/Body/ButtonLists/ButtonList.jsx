@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ButtonComponent from "../Button/ButtonCOmponent"
+import ButtonComponent from "../Button/ButtonComponent"
 import { useRef, useState, useEffect } from "react";
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 import {BUTTON_ARRAY} from '../../../utils/Constants'
