@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ButtonComponent from "../Button/ButtonCOmponent"
 import { useRef, useState, useEffect } from "react";
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
+import {BUTTON_ARRAY} from '../../../utils/Constants'
 
 const ButtonList = () => {
 const scrollContainer = useRef(null);
@@ -40,32 +41,12 @@ const handlePrevious = () => {
 }
 
   return (
-    <div className="flex items-center">
+    <div className="flex w-full items-center bg-white static lg:fixed lg:top-16 border-t-gray-300 h-16">
       {canScrollLeft && (<button onClick={handlePrevious} className="h-12 w-12 hover:bg-gray-300 rounded-full bg-white p-2">
           <FontAwesomeIcon className="text-gray-400 font-light" icon={faLessThan} />
       </button>)}
-      <div ref={scrollContainer} className="flex overflow-x-auto w-full [&::-webkit-scrollbar]:h-0">
-        <ButtonComponent btnText={"All"}/>
-        <ButtonComponent btnText={"Music"}/>
-        <ButtonComponent btnText={"Raga music"}/>
-        <ButtonComponent btnText={"Ramayana"}/>
-        <ButtonComponent btnText={"Mixes"}/>
-        <ButtonComponent btnText={"Tamil Cinema"}/>
-        <ButtonComponent btnText={"Mythology"}/>
-        <ButtonComponent btnText={"Podcasts"}/>
-        <ButtonComponent btnText={"API"}/>
-        <ButtonComponent btnText={"puranas"}/>
-        <ButtonComponent btnText={"Mantras"}/>
-        <ButtonComponent btnText={"Live"}/>
-        <ButtonComponent btnText={"Bansuri"}/>
-        <ButtonComponent btnText={"Satsung"}/>
-        <ButtonComponent btnText={"Skills"}/>
-        <ButtonComponent btnText={"Violins"}/>
-        <ButtonComponent btnText={"Albums"}/>
-        <ButtonComponent btnText={"Recently uploaded"}/>
-        <ButtonComponent btnText={"Comedy"}/>
-        <ButtonComponent btnText={"watched"}/>
-        <ButtonComponent btnText={"New to you"}/>
+      <div ref={scrollContainer} className="flex w-auto lg:w-[80%] md:w-[73%] overflow-x-auto [&::-webkit-scrollbar]:h-0">
+        {BUTTON_ARRAY.map((item) => <ButtonComponent key={item} btnText={item}/>)}
     </div>
     {canScrollRight && (<button onClick={handleNext} className="h-12 w-12 hover:bg-gray-300 bg-white rounded-full p-2">
         <FontAwesomeIcon className="text-gray-400 font-light" icon={faGreaterThan} />
