@@ -12,6 +12,7 @@ import SearchListComponent from '../SearchList/SearchListComponent'
 const Header = () => {
     const dispatch = useDispatch()
     let navigate = useNavigate();
+    const selector = useSelector(store => store.searchSlice)
     
     const [searchText, setSearchText] = useState("");
     const [showSearchList, setShowSearchList] = useState(false);
@@ -23,13 +24,17 @@ const Header = () => {
 
     const handleSearchClick = () => {
         if(searchText != "") setShowSearchList(true)
+        const searchList = selector.searchList?.filter(i=>i.query==searchText)
         clearTimeout(timeRef.current)
-        timeRef.current = setTimeout(async()=>{
-            const searchResults = await fetch(SEARCH_API.replace('{search_string}',searchText));
-            const searchResultsData = await searchResults.json()
-            dispatch(addSearchText(searchText))
-            dispatch(addSearchList({query:searchText, results:searchResultsData[1]}))
-        }, 1000)
+
+        if(searchList.length == 0){
+            timeRef.current = setTimeout(async()=>{
+                const searchResults = await fetch(SEARCH_API.replace('{search_string}',searchText));
+                const searchResultsData = await searchResults.json()
+                dispatch(addSearchText(searchText))
+                dispatch(addSearchList({query:searchText, results:searchResultsData[1]}))
+            }, 1000)
+        }
     }
 
   return (
@@ -52,7 +57,9 @@ const Header = () => {
                 value={searchText}
                 onChange={(e)=> {setSearchText(e.target.value); handleSearchClick()}}
                 onBlur={()=>setShowSearchList(false)}
-                onFocus={()=>setShowSearchList(true)}
+                onFocus={()=>{
+                    if(searchText != "") 
+                        setShowSearchList(true)}}
                 />
                 <button title="Search" 
                 className='border border-gray-400 rounded-r-full w-16 h-10  bg-gray-200 text-center cursor-pointer'
@@ -63,10 +70,10 @@ const Header = () => {
                     <FontAwesomeIcon icon={faMicrophone} />
                 </button>
             </div> 
-            <div 
+            {searchText && <div 
             className={`absolute bg-white border-1 font-semibold border-gray-300 text-black lg:w-[30rem] [@media(max-width:768px)]:w-[10rem] md:w-[15rem] mt-2 rounded-lg p-4 z-20 ${showSearchList ? 'block md:block' : 'hidden'}`}>
                 <SearchListComponent />
-            </div>
+            </div>}
         </div>
 
         <div className='flex justify-between items-center flex-nowrap'>
