@@ -70,10 +70,10 @@ const Header = () => {
                     <FontAwesomeIcon icon={faMicrophone} />
                 </button>
             </div> 
-            {searchText && <div 
-            className={`absolute bg-white border-1 font-semibold border-gray-300 text-black lg:w-[30rem] [@media(max-width:768px)]:w-[10rem] md:w-[15rem] mt-2 rounded-lg p-4 z-20 ${showSearchList ? 'block md:block' : 'hidden'}`}>
+            {showSearchList && (<div 
+            className='bg-white border-1 font-semibold border-gray-300 text-black lg:w-[30rem] [@media(max-width:768px)]:w-[10rem] md:w-[15rem] mt-2 rounded-lg p-4 z-20 absolute'>
                 <SearchListComponent />
-            </div>}
+            </div>)}
         </div>
 
         <div className='flex justify-between items-center flex-nowrap'>
