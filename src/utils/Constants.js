@@ -3,4 +3,4 @@ export const LOGO = 'https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yT
 export const PROFILE_PHOTO = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
 export const BUTTON_ARRAY = ["All","Music","Raga music","Ramayana","Mixes","Tamil Cinema","Mythology","Podcasts","API","puranas","Mantras","Live","Bansuri","Satsung","Skills","Violins","Albums","Recently uploaded","Comedy","watched","New to you"]
 export const VIDEO_LIST = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=50&key="+import.meta.env.VITE_YOUTUBE_API_KEY
-export const SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&q={search_string}"
+export const SEARCH_API = "https://suggestqueries.google.com/complete/search?client=firefox&q={search_string}"
