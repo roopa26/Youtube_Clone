@@ -23,7 +23,7 @@ const WatchPageContainer = () => {
   }
 
   return (
-    <div className='relative lg:top-28 top-40 flex flex-col lg:flex-row h-[100vh] mx-20 justify-center'>
+    <div className='relative lg:top-24 md:top-40 top-40 flex flex-col lg:flex-row h-[100vh] mx-20 justify-center'>
         <div className='flex flex-col lg:w-[55rem] h-full mr-6'>
               <WatchVideo/>
            <div className='hidden lg:block text-[1.2rem] font-bold pt-5'>{commentsData.length} Comments:
